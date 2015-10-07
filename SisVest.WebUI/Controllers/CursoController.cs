@@ -13,7 +13,9 @@ namespace SisVest.WebUI.Controllers
     {
 
         private ICursoRepository repository;
+        
         List<CursoModel> cursoModelList = new List<CursoModel>();
+        
         /// <summary>
         /// A injeção de depencia agora é feita pelo repositorio
         /// não mais pelo VestContext
@@ -71,6 +73,7 @@ namespace SisVest.WebUI.Controllers
         {
             return View(repository.RetornaCurso(idCurso));
         }
+
         public void AtualizaLista() {
             var result = repository.Cursos.ToList();
 
@@ -85,7 +88,6 @@ namespace SisVest.WebUI.Controllers
                     TotalCandidatos = curso.CandidatosList.Count
                 });
             }
-        
         }
 
         [HttpPost]

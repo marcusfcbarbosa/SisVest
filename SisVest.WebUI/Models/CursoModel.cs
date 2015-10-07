@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using SisVest.DomaninModel.Abstract;
 namespace SisVest.WebUI.Models
 {
 
@@ -11,7 +11,14 @@ namespace SisVest.WebUI.Models
     /// </summary>
     public class CursoModel
     {
+        public CursoModel() { }
         
+        private ICursoRepository repository;
+
+        public CursoModel(ICursoRepository cursoRepository){
+            repository = cursoRepository;
+        }
+
         public int ID { get; set; }
         public string Descricao { get; set; }
 
@@ -20,5 +27,28 @@ namespace SisVest.WebUI.Models
         public int TotalCandidatosAprovados { get; set; }
 
         public int TotalCandidatos { get; set; }
+
+
+
+        public IList<CursoModel> RetornaTodoss() { 
+        
+        
+            var result = repository.Cursos.ToList();
+
+            List<CursoModel> cursoModelList = new List<CursoModel>();
+
+            foreach (var curso in result)
+            {
+                cursoModelList.Add(new CursoModel(repository)
+                {
+                    ID = curso.ID,
+                    Vagas = curso.Vagas,
+                    Descricao = curso.Descricao,
+                    TotalCandidatosAprovados = repository.CandidatosAprovados(curso.ID).Count(),
+                    TotalCandidatos = curso.CandidatosList.Count
+                });
+            }
+            return cursoModelList;
+        }
     }
 }
