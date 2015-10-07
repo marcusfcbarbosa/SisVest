@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVest.DomaninModel", "SisVest.DomaninModel\SisVest.DomaninModel.csproj", "{757C0318-F249-4452-B67B-E15115C81A0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVest.Test", "SisVest.Test\SisVest.Test.csproj", "{313D3447-967A-42AA-8F5C-E40746D20479}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisVest.WebUI", "SisVest.WebUI\SisVest.WebUI.csproj", "{5C7758D7-4AC7-4666-B795-8057D48E2FDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{757C0318-F249-4452-B67B-E15115C81A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757C0318-F249-4452-B67B-E15115C81A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757C0318-F249-4452-B67B-E15115C81A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757C0318-F249-4452-B67B-E15115C81A0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{313D3447-967A-42AA-8F5C-E40746D20479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{313D3447-967A-42AA-8F5C-E40746D20479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{313D3447-967A-42AA-8F5C-E40746D20479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{313D3447-967A-42AA-8F5C-E40746D20479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C7758D7-4AC7-4666-B795-8057D48E2FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C7758D7-4AC7-4666-B795-8057D48E2FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C7758D7-4AC7-4666-B795-8057D48E2FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C7758D7-4AC7-4666-B795-8057D48E2FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

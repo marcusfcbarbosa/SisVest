@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SisVest.DomaninModel.Entities.Curso>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listagem de cursos</h2>
+    @if ( (TempData["Mensagem"] != null)) { 
+        <p><strong> @TempData["Mensagem"] </strong> </p>
+    }
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vagas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vagas)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Alterar", new { idCurso = item.ID }) |
+            @Html.ActionLink("Detalhe", "Detalhe", new { idCurso = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { idCurso = item.ID })
+        </td>
+    </tr>
+}
+</table>

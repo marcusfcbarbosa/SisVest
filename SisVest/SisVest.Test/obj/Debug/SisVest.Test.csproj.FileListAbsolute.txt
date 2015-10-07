@@ -1,0 +1,12 @@
+C:\SisVest\SisVest.Test\bin\Debug\SisVest.Test.dll.config
+C:\SisVest\SisVest.Test\bin\Debug\SisVest.Test.dll
+C:\SisVest\SisVest.Test\bin\Debug\SisVest.Test.pdb
+C:\SisVest\SisVest.Test\bin\Debug\EntityFramework.dll
+C:\SisVest\SisVest.Test\bin\Debug\EntityFramework.SqlServer.dll
+C:\SisVest\SisVest.Test\bin\Debug\SisVest.DomaninModel.dll
+C:\SisVest\SisVest.Test\bin\Debug\SisVest.DomaninModel.pdb
+C:\SisVest\SisVest.Test\bin\Debug\EntityFramework.xml
+C:\SisVest\SisVest.Test\bin\Debug\EntityFramework.SqlServer.xml
+C:\SisVest\SisVest.Test\obj\Debug\SisVest.Test.csprojResolveAssemblyReference.cache
+C:\SisVest\SisVest.Test\obj\Debug\SisVest.Test.dll
+C:\SisVest\SisVest.Test\obj\Debug\SisVest.Test.pdb

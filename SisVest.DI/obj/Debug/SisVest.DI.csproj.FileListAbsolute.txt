@@ -1,0 +1,2 @@
+C:\SisVest\SisVest.DI\obj\Debug\SisVest.DI.csprojFakesResolveAssemblyReference.cache
+C:\SisVest\SisVest.DI\bin\Debug\SisVest.DI.exe.config
