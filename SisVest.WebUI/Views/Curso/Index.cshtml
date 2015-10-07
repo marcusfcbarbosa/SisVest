@@ -1,13 +1,10 @@
-﻿@model IEnumerable<SisVest.DomaninModel.Entities.Curso>
+﻿@model IEnumerable<SisVest.WebUI.Models.CursoModel>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Listagem de cursos</h2>
-    @if ( (TempData["Mensagem"] != null)) { 
-        <p><strong> @TempData["Mensagem"] </strong> </p>
-    }
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -19,6 +16,12 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Vagas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCandidatosAprovados)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCandidatos)
         </th>
         <th></th>
     </tr>
@@ -32,10 +35,17 @@
             @Html.DisplayFor(modelItem => item.Vagas)
         </td>
         <td>
-            @Html.ActionLink("Alterar", "Alterar", new { idCurso = item.ID }) |
-            @Html.ActionLink("Detalhe", "Detalhe", new { idCurso = item.ID }) |
+            @Html.DisplayFor(modelItem => item.TotalCandidatosAprovados)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCandidatos)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { idCurso = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { idCurso = item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { idCurso = item.ID })
         </td>
     </tr>
 }
+
 </table>

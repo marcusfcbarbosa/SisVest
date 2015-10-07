@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SisVest.WebUI.Models;
 
 namespace SisVest.WebUI.Controllers
 {
@@ -12,7 +13,7 @@ namespace SisVest.WebUI.Controllers
     {
 
         private ICursoRepository repository;
-
+        List<CursoModel> cursoModelList = new List<CursoModel>();
         /// <summary>
         /// A injeção de depencia agora é feita pelo repositorio
         /// não mais pelo VestContext
@@ -26,7 +27,19 @@ namespace SisVest.WebUI.Controllers
         // GET: Curso
         public ActionResult Index()
         {
-            return View(repository.Cursos.ToList());
+            var result = repository.Cursos.ToList();
+            foreach (var curso in result)
+            {
+                cursoModelList.Add(new CursoModel
+                {
+                    ID = curso.ID,
+                    Vagas = curso.Vagas,
+                    Descricao = curso.Descricao,
+                    TotalCandidatosAprovados = repository.CandidatosAprovados(curso.ID).Count(),
+                    TotalCandidatos = curso.CandidatosList.Count
+                });
+            }
+            return View(cursoModelList);
         }
 
         public ActionResult Create()
@@ -35,45 +48,70 @@ namespace SisVest.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Curso curso)
+        public ActionResult Create(CursoModel curso)
         {
             try
             {
-                repository.InserirCurso(curso);
+                repository.InserirCurso(new Curso { 
+                    Descricao = curso.Descricao,
+                    Vagas = curso.Vagas
+                });
                 TempData["Mensagem"] = "Curso inserido com sucesso !!";
-                return View("Index", repository.Cursos.ToList());
+                AtualizaLista();
+                return View("Index", cursoModelList);
             }
             catch (Exception ex)
             {
                 TempData["Mensagem"] = ex.Message;
-                return View("Index", repository.Cursos.ToList());
+                return View("Index", cursoModelList);
             }
         }
 
-        public ActionResult Alterar(int idCurso)
+        public ActionResult Edit(int idCurso)
         {
             return View(repository.RetornaCurso(idCurso));
         }
+        public void AtualizaLista() {
+            var result = repository.Cursos.ToList();
+
+            foreach (var curso in result)
+            {
+                cursoModelList.Add(new CursoModel
+                {
+                    ID = curso.ID,
+                    Vagas = curso.Vagas,
+                    Descricao = curso.Descricao,
+                    TotalCandidatosAprovados = repository.CandidatosAprovados(curso.ID).Count(),
+                    TotalCandidatos = curso.CandidatosList.Count
+                });
+            }
+        
+        }
 
         [HttpPost]
-        public ActionResult Alterar(Curso curso)
+        public ActionResult Edit(CursoModel curso)
         {
             try
             {
-                repository.AtualizaCurso(curso);
+                Curso c = new Curso();
+                c.Vagas = curso.Vagas;
+                c.Descricao = curso.Descricao;
+                c.ID = curso.ID;
+                repository.AtualizaCurso(c);
+                AtualizaLista();
                 TempData["Mensagem"] = "Curso atualizado com sucesso !!";
-                return View("Index", repository.Cursos.ToList());
+                return View("Index", cursoModelList);
             }
             catch (Exception ex)
             {
                 TempData["Mensagem"] = ex.Message;
-                return View("Index", repository.Cursos.ToList());
+                return View("Index", cursoModelList);
             }
-
         }
 
         public ActionResult Delete(int idCurso)
         {
+            AtualizaLista();
             return View(repository.RetornaCurso(idCurso));
         }
 
@@ -83,30 +121,22 @@ namespace SisVest.WebUI.Controllers
             try
             {
                 repository.Excluir(curso.ID);
+                AtualizaLista();
                 TempData["Mensagem"] = "Curso removido com sucesso !!";
-                return View("Index", repository.Cursos.ToList());
+                return View("Index", cursoModelList);
             }
             catch (Exception ex)
             {
+                AtualizaLista();
                 TempData["Mensagem"] = ex.Message;
-                return View("Index", repository.Cursos.ToList());
+                return View("Index", cursoModelList);
             }
         }
 
-        public ActionResult Detalhe(int idCurso)
+        public ActionResult Details(int idCurso)
         {
-            return View(repository.RetornaCurso(idCurso));
-
-        }
-        //[HttpPost]
-        //public ActionResult Alterar(int idCurso)
-        //{
-        //    return View(repository.RetornaCurso(idCurso));
-        //}
-
-        public ActionResult Excluir(int idCurso)
-        {
-            return View(repository.RetornaCurso(idCurso));
+            AtualizaLista();
+            return View(cursoModelList.Where(x => x.ID == idCurso).FirstOrDefault());
         }
     }
 }
