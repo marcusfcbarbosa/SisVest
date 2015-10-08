@@ -23,8 +23,8 @@
               grid.Column("    Vagas   ", header:"Numero de Vagas", format: @<b>@item.Vagas</b>),
               grid.Column("  TotalCandidatos  ", header:"Candidatos Inscritos", format: @<u>@item.TotalCandidatos</u>),
               grid.Column("  TotalCandidatosAprovados  ", header: "Candidatos Aprovados", format: @<u>@item.TotalCandidatosAprovados</u>),
-              grid.Column(header: "   ",format: (item) => Html.ActionLink("Editar", "Details", new { idCurso = item.id }),canSort:false),
-              grid.Column(header: "   ",format: (item) => Html.ActionLink("Excluir", "Delete", new { idCurso = item.id }),canSort:false)
+              grid.Column(header: "   ",format: (item) => Html.ActionLink("Editar", "Details", new { idCurso = item.id }),canSort:true),
+              grid.Column(header: "   ",format: (item) => Html.ActionLink("Excluir", "Delete", new { idCurso = item.id }),canSort:true)
               )
               )
 
