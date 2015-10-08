@@ -15,23 +15,20 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Vagas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalCandidatosAprovados)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalCandidatos)
-        </th>
-        <th></th>
-    </tr>
+    @{
+        WebGrid grid = new WebGrid(source: Model,rowsPerPage:3); 
+    }
+    @grid.GetHtml(columns: grid.Columns(
+              grid.Column("    Descricao  ", header: "Curso", format: @<i>@item.Descricao</i>),
+              grid.Column("    Vagas   ", header:"Numero de Vagas", format: @<b>@item.Vagas</b>),
+              grid.Column("  TotalCandidatos  ", header:"Candidatos Inscritos", format: @<u>@item.TotalCandidatos</u>),
+              grid.Column("  TotalCandidatosAprovados  ", header: "Candidatos Aprovados", format: @<u>@item.TotalCandidatosAprovados</u>),
+              grid.Column(header: "   ",format: (item) => Html.ActionLink("Editar", "Details", new { idCurso = item.id }),canSort:false),
+              grid.Column(header: "   ",format: (item) => Html.ActionLink("Excluir", "Delete", new { idCurso = item.id }),canSort:false)
+              )
+              )
 
-@foreach (var item in Model) {
+@*@foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Descricao)
@@ -51,6 +48,6 @@
             @Html.ActionLink("Delete", "Delete", new { idCurso = item.ID })
         </td>
     </tr>
-}
+}*@
 
 </table>
