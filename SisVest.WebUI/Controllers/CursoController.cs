@@ -53,10 +53,8 @@ namespace SisVest.WebUI.Controllers
                     Vagas = curso.Vagas
                 });
                 TempData["Mensagem"] = "Curso inserido com sucesso !!";
-                
                 //redirecionando para a Action Index
                 return RedirectToAction("Index");
-                
             }
             catch (Exception ex)
             {

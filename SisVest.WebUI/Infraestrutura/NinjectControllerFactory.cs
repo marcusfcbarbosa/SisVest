@@ -12,7 +12,7 @@ using SisVest.WebUI.Models;
 namespace SisVest.WebUI.Infraestrutura
 {
 
-    
+
     /// <summary>
     /// Para criar um Controller Factory customizado, deve-se herdar
     /// DefaultControllerFactory
@@ -22,7 +22,8 @@ namespace SisVest.WebUI.Infraestrutura
 
         private IKernel ninjectKernel;
 
-        public NinjectControllerFactory() {
+        public NinjectControllerFactory()
+        {
 
             ninjectKernel = new StandardKernel();
             AddBindings();
@@ -46,7 +47,8 @@ namespace SisVest.WebUI.Infraestrutura
         /// <summary>
         /// Mapeamento das dependencias dos Controllers, vincula as classes concretas com a Interface
         /// </summary>
-        private void AddBindings() {
+        private void AddBindings()
+        {
             ninjectKernel.Bind<ICursoRepository>().To<EFCursoRepository>();
             ninjectKernel.Bind<IVestibularRepository>().To<EFVestibularRepository>();
             ninjectKernel.Bind<ICandidatoRepository>().To<EFCandidatoRepository>();
@@ -54,6 +56,7 @@ namespace SisVest.WebUI.Infraestrutura
             ninjectKernel.Bind<VestContext>().ToSelf();
             //Explicitando as dependencias de CursoModel
             ninjectKernel.Bind<CursoModel>().ToSelf();
+            ninjectKernel.Bind<VestibularModel>().ToSelf();
         }
         #endregion
     }

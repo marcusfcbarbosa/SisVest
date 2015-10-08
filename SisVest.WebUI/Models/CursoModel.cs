@@ -30,11 +30,8 @@ namespace SisVest.WebUI.Models
 
 
         public IList<CursoModel> RetornaTodos() { 
-
             var result = repository.Cursos.ToList();
-
             List<CursoModel> cursoModelList = new List<CursoModel>();
-
             foreach (var curso in result)
             {
                 try

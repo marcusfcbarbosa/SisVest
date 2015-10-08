@@ -27,7 +27,7 @@ namespace SisVest.WebUI
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Curso", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Vestibular", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
         }

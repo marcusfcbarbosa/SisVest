@@ -1,0 +1,28 @@
+﻿@model IEnumerable<SisVest.WebUI.Models.VestibularModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+                      @{
+                          if (TempData["Mensagem"] != null)
+                          {
+                              <h2> <strong>@TempData["Mensagem"] </strong> </h2>
+                          }
+                      }
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+                      @{
+                          WebGrid grid = new WebGrid(source: Model, rowsPerPage: 3);
+                      }
+                      @grid.GetHtml(columns: grid.Columns(
+                      grid.Column("Descricao", header: "Curso", format: @<i>@item.Descricao</i>),
+                      grid.Column("DataInicio", header: "Inicio da prova", format: @<b>@item.DataInicio</b>),
+                      grid.Column("DataFim", header: "Fim da prova", format: @<u>@item.DataFim</u>),
+                      grid.Column("DataProva", header: "Data da Prova", format: @<u>@item.DataProva</u>),
+                      grid.Column(header: "   ", format: (item) => Html.ActionLink("Editar", "Details", new { idVestibular = item.id }), canSort: true),
+                      grid.Column(header: "   ", format: (item) => Html.ActionLink("Excluir", "Delete", new { idVestibular = item.id }), canSort: true)
+                                )
+                                )

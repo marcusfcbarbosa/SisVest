@@ -127,11 +127,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CursoController.cs" />
+    <Compile Include="Controllers\VestibularController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infraestrutura\NinjectControllerFactory.cs" />
     <Compile Include="Models\CursoModel.cs" />
+    <Compile Include="Models\VestibularModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +228,10 @@
     <Content Include="Views\Curso\Edit.cshtml" />
     <Content Include="Views\Curso\Delete.cshtml" />
     <Content Include="Views\Curso\Details.cshtml" />
+    <Content Include="Views\Vestibular\Index.cshtml" />
+    <Content Include="Views\Vestibular\Details.cshtml" />
+    <Content Include="Views\Vestibular\Delete.cshtml" />
+    <Content Include="Views\Vestibular\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
