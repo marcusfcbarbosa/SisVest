@@ -35,5 +35,6 @@ namespace SisVest.DomaninModel.Concrete
 
         public DbSet<Vestibular> Vestibulares { get; set; }
 
+
     }
 }

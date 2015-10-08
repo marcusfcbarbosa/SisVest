@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SisVest.WebUI.Models.VestibularModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de Vestibulares";
 }
 
 <h2>Index</h2>
@@ -22,7 +22,7 @@
                       grid.Column("DataInicio", header: "Inicio da prova", format: @<b>@item.DataInicio</b>),
                       grid.Column("DataFim", header: "Fim da prova", format: @<u>@item.DataFim</u>),
                       grid.Column("DataProva", header: "Data da Prova", format: @<u>@item.DataProva</u>),
-                      grid.Column(header: "   ", format: (item) => Html.ActionLink("Editar", "Details", new { idVestibular = item.id }), canSort: true),
+                      grid.Column(header: "   ", format: (item) => Html.ActionLink("Editar", "Edit", new { idVestibular = item.id }), canSort: true),
                       grid.Column(header: "   ", format: (item) => Html.ActionLink("Excluir", "Delete", new { idVestibular = item.id }), canSort: true)
                                 )
                                 )

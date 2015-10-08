@@ -33,6 +33,37 @@ namespace SisVest.WebUI.Controllers
             return View(vestibularModel.RetornaVestibular(idVestibular));
         }
 
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(VestibularModel vestibular)
+        {
+            try
+            {
+                repository.Inserir(new Vestibular
+                {
+                    Descricao = vestibular.Descricao,
+                    DataProva = vestibular.DataProva,
+                    DataInicio = vestibular.DataInicio,
+                    DataFim = vestibular.DataFim
+                });
+
+                TempData["Mensagem"] = " Vestibular Inserido com sucesso!! ";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["Mensagem"] = ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
+
+
+
         [HttpPost]
         public ActionResult Edit(VestibularModel vestibularModel)
         {

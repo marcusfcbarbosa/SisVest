@@ -11,6 +11,7 @@ namespace SisVest.WebUI.Models
 
         private IVestibularRepository repository;
 
+        public VestibularModel() { }
         public VestibularModel(IVestibularRepository vestRepository)
         {
             repository = vestRepository;

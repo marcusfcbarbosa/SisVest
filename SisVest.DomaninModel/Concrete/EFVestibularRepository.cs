@@ -61,7 +61,12 @@ namespace SisVest.DomaninModel.Concrete
 
         public void Alterar(Vestibular vestibular)
         {
-            throw new NotImplementedException();
+            var atualizaVestibular = vestContext.Vestibulares.Where(x => x.ID == vestibular.ID).FirstOrDefault();
+            atualizaVestibular.DataFim = vestibular.DataFim;
+            atualizaVestibular.DataInicio = vestibular.DataInicio;
+            atualizaVestibular.DataProva = vestibular.DataProva;
+            atualizaVestibular.Descricao = vestibular.Descricao;
+            vestContext.SaveChanges();
         }
 
         /// <summary>
