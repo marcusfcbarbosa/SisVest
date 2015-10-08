@@ -7,6 +7,7 @@ using Ninject;
 using SisVest.DomaninModel;
 using SisVest.DomaninModel.Abstract;
 using SisVest.DomaninModel.Concrete;
+using SisVest.WebUI.Models;
 
 namespace SisVest.WebUI.Infraestrutura
 {
@@ -51,6 +52,8 @@ namespace SisVest.WebUI.Infraestrutura
             ninjectKernel.Bind<ICandidatoRepository>().To<EFCandidatoRepository>();
             ninjectKernel.Bind<IAdminRepository>().To<EFAdminRepository>();
             ninjectKernel.Bind<VestContext>().ToSelf();
+            //Explicitando as dependencias de CursoModel
+            ninjectKernel.Bind<CursoModel>().ToSelf();
         }
         #endregion
     }

@@ -5,7 +5,12 @@
 }
 
 <h2>Index</h2>
-
+                      @{
+                          if (TempData["Mensagem"] != null)
+                          {
+                              <h2> <strong>@TempData["Mensagem"] </strong> </h2>
+                          }
+                      }
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -41,8 +46,8 @@
             @Html.DisplayFor(modelItem => item.TotalCandidatos)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { idCurso = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { idCurso = item.ID }) |
+            @Html.ActionLink("Edit", "Edit", new { idCurso =item.ID }) |
+            @Html.ActionLink("Details", "Details", new { idCurso  = item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { idCurso = item.ID })
         </td>
     </tr>
