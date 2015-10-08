@@ -27,27 +27,4 @@
               grid.Column(header: "   ",format: (item) => Html.ActionLink("Excluir", "Delete", new { idCurso = item.id }),canSort:true)
               )
               )
-
-@*@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vagas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCandidatosAprovados)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCandidatos)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { idCurso =item.ID }) |
-            @Html.ActionLink("Details", "Details", new { idCurso  = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { idCurso = item.ID })
-        </td>
-    </tr>
-}*@
-
 </table>

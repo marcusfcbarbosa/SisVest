@@ -53,14 +53,15 @@ namespace SisVest.WebUI.Controllers
                     Vagas = curso.Vagas
                 });
                 TempData["Mensagem"] = "Curso inserido com sucesso !!";
-                //return View("Index", repository.RetornaTodos());
-                return View("Index", cursoModel.RetornaTodos());
+                
+                //redirecionando para a Action Index
+                return RedirectToAction("Index");
                 
             }
             catch (Exception ex)
             {
                 TempData["Mensagem"] = ex.Message;
-                return View("Index", cursoModel.RetornaTodos());
+                return RedirectToAction("Index");
             }
         }
 
@@ -82,12 +83,12 @@ namespace SisVest.WebUI.Controllers
                     ID = curso.ID
                 });
                 TempData["Mensagem"] = "Curso atualizado com sucesso !!";
-                return View("Index", cursoModel.RetornaTodos());
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 TempData["Mensagem"] = ex.Message;
-                return View("Index", cursoModel.RetornaTodos());
+                return RedirectToAction("Index");
             }
         }
 
@@ -101,31 +102,14 @@ namespace SisVest.WebUI.Controllers
             {
                 repository.Excluir(idCurso);
                 TempData["Mensagem"] = "Curso removido com sucesso !!";
-                return View("Index", cursoModel.RetornaTodos());
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 TempData["Mensagem"] = ex.Message;
-                return View("Index", cursoModel.RetornaTodos());
+                return RedirectToAction("Index");
             }
         }
-        
-        //[HttpPost]
-        //public ActionResult Delete(CursoModel curso)
-        //{
-        //Por alguma razão não está enviando o Modelo no POST
-        //    try
-        //    {
-        //        repository.Excluir(curso.ID);
-        //        TempData["Mensagem"] = "Curso removido com sucesso !!";
-        //        return View("Index", cursoModel.RetornaTodos());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData["Mensagem"] = ex.Message;
-        //        return View("Index", cursoModel.RetornaTodos());
-        //    }
-        //}
 
         public ActionResult Details(int idCurso)
         {
