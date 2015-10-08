@@ -14,15 +14,22 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-                      @{
-                          WebGrid grid = new WebGrid(source: Model, rowsPerPage: 3);
+            @{
+                          WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
                       }
-                      @grid.GetHtml(columns: grid.Columns(
-                      grid.Column("Descricao", header: "Curso", format: @<i>@item.Descricao</i>),
-                      grid.Column("DataInicio", header: "Inicio da prova", format: @<b>@item.DataInicio</b>),
-                      grid.Column("DataFim", header: "Fim da prova", format: @<u>@item.DataFim</u>),
-                      grid.Column("DataProva", header: "Data da Prova", format: @<u>@item.DataProva</u>),
-                      grid.Column(header: "   ", format: (item) => Html.ActionLink("Editar", "Edit", new { idVestibular = item.id }), canSort: true),
-                      grid.Column(header: "   ", format: (item) => Html.ActionLink("Excluir", "Delete", new { idVestibular = item.id }), canSort: true)
+  @grid.GetHtml(columns: grid.Columns(
+  
+  grid.Column("Descricao", header: "Curso", format: @<i>@item.Descricao</i>),
+          
+  grid.Column("DataInicio", header: "Inicio da prova", format: (item) => string.Format("{0:dd-MMM-yyyy}", item.DataInicio)),
+    
+  grid.Column("DataFim", header: "Fim da prova", format: (item) => string.Format("{0:dd-MMM-yyyy}", item.DataFim)),
+
+  grid.Column("DataProva", header: "Data da Prova", format: (item) => string.Format("{0:dd-MMM-yyyy}", item.DataProva)),
+  
+  grid.Column(header: "   ", format: (item) => Html.ActionLink("Editar", "Edit", new { idVestibular = item.id }), canSort: true),
+  
+  grid.Column(header: "   ", format: (item) => Html.ActionLink("Excluir", "Delete", new { idVestibular = item.id }), canSort: true)
+                      
                                 )
                                 )

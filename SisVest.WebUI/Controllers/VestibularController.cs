@@ -33,7 +33,6 @@ namespace SisVest.WebUI.Controllers
             return View(vestibularModel.RetornaVestibular(idVestibular));
         }
 
-
         public ActionResult Create()
         {
             return View();
@@ -61,8 +60,6 @@ namespace SisVest.WebUI.Controllers
                 return RedirectToAction("Index");
             }
         }
-
-
 
         [HttpPost]
         public ActionResult Edit(VestibularModel vestibularModel)
@@ -102,7 +99,6 @@ namespace SisVest.WebUI.Controllers
                 TempData["Mensagem"] = ex.Message;
                 return RedirectToAction("Index");
             }
-
         }
     }
 }
