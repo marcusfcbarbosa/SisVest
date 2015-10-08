@@ -230,8 +230,8 @@
     <Content Include="Views\Curso\Details.cshtml" />
     <Content Include="Views\Vestibular\Index.cshtml" />
     <Content Include="Views\Vestibular\Details.cshtml" />
-    <Content Include="Views\Vestibular\Delete.cshtml" />
     <Content Include="Views\Vestibular\Edit.cshtml" />
+    <Content Include="Views\Vestibular\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

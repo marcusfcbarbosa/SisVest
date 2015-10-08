@@ -71,6 +71,7 @@ namespace SisVest.DomaninModel.Concrete
         public void excluir(int idVestibular)
         {
             vestContext.Vestibulares.Remove(vestContext.Vestibulares.Where(x => x.ID == idVestibular).FirstOrDefault());
+            vestContext.SaveChanges();
         }
 
         /// <summary>

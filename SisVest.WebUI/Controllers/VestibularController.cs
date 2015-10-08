@@ -53,8 +53,6 @@ namespace SisVest.WebUI.Controllers
             return View(vestibularModel.RetornaVestibular(idVestibular));
         }
 
-      
-
         public ActionResult Delete(int idVestibular)
         {
             return View(vestibularModel.RetornaVestibular(idVestibular));
@@ -62,9 +60,18 @@ namespace SisVest.WebUI.Controllers
 
         public ActionResult Deletar(int idVestibular)
         {
-            repository.excluir(idVestibular);
-            TempData["Mensagem"] = "Vestibular Excluido com sucesso!!";
-            return RedirectToAction("Index");
+            try
+            {
+                repository.excluir(idVestibular);
+                TempData["Mensagem"] = "Vestibular Excluido com sucesso!!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["Mensagem"] = ex.Message;
+                return RedirectToAction("Index");
+            }
+
         }
     }
 }
