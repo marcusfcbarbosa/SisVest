@@ -47,14 +47,19 @@ namespace SisVest.WebUI.Controllers
         {
             try
             {
-                repository.InserirCurso(new Curso
+                ModelState["ID"].Errors.Clear();
+                if (ModelState.IsValid)
                 {
-                    Descricao = curso.Descricao,
-                    Vagas = curso.Vagas
-                });
-                TempData["Mensagem"] = "Curso inserido com sucesso !!";
-                //redirecionando para a Action Index
-                return RedirectToAction("Index");
+                    repository.InserirCurso(new Curso
+                    {
+                        Descricao = curso.Descricao,
+                        Vagas = curso.Vagas
+                    });
+                    TempData["Mensagem"] = "Curso inserido com sucesso !!";
+                    //redirecionando para a Action Index
+                    return RedirectToAction("Index");
+                }
+                return View(curso);
             }
             catch (Exception ex)
             {
@@ -74,14 +79,19 @@ namespace SisVest.WebUI.Controllers
         {
             try
             {
-                repository.AtualizaCurso(new Curso
+                ModelState["ID"].Errors.Clear();
+                if (ModelState.IsValid)
                 {
-                    Descricao = curso.Descricao,
-                    Vagas = curso.Vagas,
-                    ID = curso.ID
-                });
-                TempData["Mensagem"] = "Curso atualizado com sucesso !!";
-                return RedirectToAction("Index");
+                    repository.AtualizaCurso(new Curso
+                    {
+                        Descricao = curso.Descricao,
+                        Vagas = curso.Vagas,
+                        ID = curso.ID
+                    });
+                    TempData["Mensagem"] = "Curso atualizado com sucesso !!";
+                    return RedirectToAction("Index");
+                }
+                return View(curso);
             }
             catch (Exception ex)
             {
