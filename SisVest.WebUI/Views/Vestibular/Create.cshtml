@@ -12,11 +12,8 @@
     <title>Create</title>
 </head>
 <body>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    
-    
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
     @using (Html.BeginForm()) 
     {
         @Html.AntiForgeryToken()
@@ -68,5 +65,14 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <!-- Load jQuery UI Main JS  -->
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery-ui.ui.i18n.datepicker-pt-BR.js"></script>
+    <script type="text/javascript">
+        $('#DataInicio').datepicker({ dateFormat: 'yy-mm-dd' });
+        $('#DataFim').datepicker({ dateFormat: 'yy-mm-dd' });
+        $('#DataProva').datepicker({ dateFormat: 'yy-mm-dd' });
+    </script>
 </body>
 </html>
