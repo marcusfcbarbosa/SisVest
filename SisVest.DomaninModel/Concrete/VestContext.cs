@@ -12,7 +12,6 @@ namespace SisVest.DomaninModel.Concrete
 {
     public class VestContext : DbContext
     {
-
         /// <summary>
         /// Referencia direta a chave
         /// </summary>

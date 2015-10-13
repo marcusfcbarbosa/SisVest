@@ -50,7 +50,6 @@ namespace SisVest.WebUI.Controllers
                     DataInicio = vestibular.DataInicio,
                     DataFim = vestibular.DataFim
                 });
-
                 TempData["Mensagem"] = " Vestibular Inserido com sucesso!! ";
                 return RedirectToAction("Index");
             }

@@ -104,6 +104,7 @@ namespace SisVest.WebUI.Controllers
         {
             return View(cursoModel.RetornaCursoModel(idCurso));
         }
+
         public ActionResult Deletar(int idCurso)
         {
             try

@@ -13,11 +13,11 @@ namespace SisVest.DomaninModel.Entities
         [Key]
         public int ID { get; set; }
 
-        [Required(ErrorMessage="Descrição do curso é obrigatória")]
+        [Required(ErrorMessage = "Descrição do curso é obrigatória")]
         public string Descricao { get; set; }
 
         [Required(ErrorMessage = "Informe o numero de vagas de 1 a 50")]
-        [Range(1,50,ErrorMessage="Informe o numero de vagas de 1 a 50")]
+        [Range(1, 50, ErrorMessage = "Informe o numero de vagas de 1 a 50")]
         public int Vagas { get; set; }
 
         /// <summary>
