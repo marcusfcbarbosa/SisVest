@@ -9,6 +9,10 @@ using SisVest.WebUI.Models;
 
 namespace SisVest.WebUI.Controllers
 {
+    /// <summary>
+    /// Autenticação a Nivel de Controller
+    /// </summary>
+    [Authorize]
     public class CursoController : Controller
     {
         private ICursoRepository repository;

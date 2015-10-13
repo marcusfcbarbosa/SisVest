@@ -9,6 +9,7 @@ using SisVest.WebUI.Models;
 
 namespace SisVest.WebUI.Controllers
 {
+    [Authorize]
     public class VestibularController : Controller
     {
         private IVestibularRepository repository;
@@ -24,10 +25,10 @@ namespace SisVest.WebUI.Controllers
         }
 
         /// <summary>
-        /// Para ter acesso a esse Index, precisa ser autenticado
+        /// Para ter acesso a esse Index, precisa ser autenticado, autenticação pelo Nivel de Action
         /// </summary>
         /// <returns></returns>
-        [Authorize]
+        //[Authorize]
         public ActionResult Index()
         {
             return View(vestibularModel.RetornaTodos());
