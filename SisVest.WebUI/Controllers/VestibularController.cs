@@ -23,6 +23,11 @@ namespace SisVest.WebUI.Controllers
             vestibularModel = vestibularModelParam;
         }
 
+        /// <summary>
+        /// Para ter acesso a esse Index, precisa ser autenticado
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
         public ActionResult Index()
         {
             return View(vestibularModel.RetornaTodos());

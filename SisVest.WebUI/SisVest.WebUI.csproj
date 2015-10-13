@@ -126,12 +126,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AutenticacaoController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\VestibularController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infraestrutura\NinjectControllerFactory.cs" />
+    <Compile Include="Models\AutenticacaoModel.cs" />
     <Compile Include="Models\CursoModel.cs" />
     <Compile Include="Models\VestibularModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -291,6 +293,7 @@
     <Content Include="Views\Vestibular\Edit.cshtml" />
     <Content Include="Views\Vestibular\Delete.cshtml" />
     <Content Include="Views\Vestibular\Create.cshtml" />
+    <Content Include="Views\Autenticacao\Entrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
