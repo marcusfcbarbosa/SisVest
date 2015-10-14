@@ -133,6 +133,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infraestrutura\NinjectControllerFactory.cs" />
+    <Compile Include="Infraestrutura\Provider\Abstract\IAutenticacaoProvider.cs" />
+    <Compile Include="Infraestrutura\Provider\Concrete\CustomAutenticacaoProvider.cs" />
     <Compile Include="Models\AutenticacaoModel.cs" />
     <Compile Include="Models\CursoModel.cs" />
     <Compile Include="Models\VestibularModel.cs" />
