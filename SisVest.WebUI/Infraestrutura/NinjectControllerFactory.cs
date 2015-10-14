@@ -8,6 +8,8 @@ using SisVest.DomaninModel;
 using SisVest.DomaninModel.Abstract;
 using SisVest.DomaninModel.Concrete;
 using SisVest.WebUI.Models;
+using SisVest.WebUI.Infraestrutura.Provider.Abstract;
+using SisVest.WebUI.Infraestrutura.Provider.Concrete;
 
 namespace SisVest.WebUI.Infraestrutura
 {
@@ -57,6 +59,9 @@ namespace SisVest.WebUI.Infraestrutura
             //Explicitando as dependencias de CursoModel
             ninjectKernel.Bind<CursoModel>().ToSelf();
             ninjectKernel.Bind<VestibularModel>().ToSelf();
+            //Definindo os providers de autenticação
+            ninjectKernel.Bind<IAutenticacaoProvider>().To<CustomAutenticacaoProvider>();
+
         }
         #endregion
     }
