@@ -47,7 +47,8 @@ namespace SisVest.WebUI.Infraestrutura.Provider.Concrete
             {
                 Grupo = "Administrador",
                 Login = autenticacaoModel.Login,
-                Senha = autenticacaoModel.Senha
+                Senha = autenticacaoModel.Senha,
+                NomeTratamento = usuario.NomeTratamento
             };
             return true;
         }

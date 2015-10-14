@@ -27,6 +27,13 @@ namespace SisVest.WebUI.Controllers
             return View(autenticacaoProvider.UsuarioAutenticado);
         }
 
+
+        public ActionResult Sair()
+        {
+            autenticacaoProvider.Desautenticar();
+            return RedirectToAction("Entrar");
+        }
+
         [HttpPost]
         public ActionResult Entrar(AutenticacaoModel autenticacaoModel)
         {
@@ -47,5 +54,8 @@ namespace SisVest.WebUI.Controllers
             }
             return View();
         }
+
+
+
     }
 }

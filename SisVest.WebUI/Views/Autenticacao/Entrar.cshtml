@@ -5,25 +5,20 @@
 
 <h2>Entrar</h2>
 
-@if (ViewBag.Autenticado)
+@if (!ViewBag.Autenticado)
 {
-    
             using (@Html.BeginForm())
             {
-
                 @Html.EditorForModel()
-
                 <p>
                     <input type="submit" value="Entrar" />
                 </p>
             }
-
 }else{
 
     <p>
         "Autenticado " 
     </p>
-     
-
+    @Html.ActionLink("Sair","Sair")
 }
 

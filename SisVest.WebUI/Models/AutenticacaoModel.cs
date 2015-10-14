@@ -19,8 +19,11 @@ namespace SisVest.WebUI.Models
         /// <summary>
         /// Grupo do candidato e do Admin
         /// </summary>
-        [HiddenInput]
+        [HiddenInput(DisplayValue=false)]
         public String Grupo { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public String NomeTratamento { get; set; }
 
     }
 }
