@@ -23,7 +23,8 @@ namespace SisVest.WebUI.Controllers
         // GET: Autenticacao
         public ActionResult Entrar()
         {
-            return View();
+            ViewBag.Autenticado = autenticacaoProvider.Autenticado;
+            return View(autenticacaoProvider.UsuarioAutenticado);
         }
 
         [HttpPost]
