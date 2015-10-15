@@ -135,6 +135,7 @@
     <Compile Include="Infraestrutura\Filter\CustomAutenticacaoAttribute.cs" />
     <Compile Include="Infraestrutura\Filter\TesteFiltroAttribute.cs" />
     <Compile Include="Infraestrutura\NinjectControllerFactory.cs" />
+    <Compile Include="Infraestrutura\NinjectDependencyResolver.cs" />
     <Compile Include="Infraestrutura\Provider\Abstract\IAutenticacaoProvider.cs" />
     <Compile Include="Infraestrutura\Provider\Concrete\CustomAutenticacaoProvider.cs" />
     <Compile Include="Models\AutenticacaoModel.cs" />

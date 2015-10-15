@@ -14,7 +14,7 @@ namespace SisVest.WebUI.Controllers
     /// <summary>
     /// Autenticação a Nivel de Controller
     /// </summary>
-    [Authorize]
+    
     public class CursoController : Controller
     {
         private ICursoRepository repository;
@@ -37,7 +37,7 @@ namespace SisVest.WebUI.Controllers
             autenticacaoProvider = autenticacaoProviderParam;
         }
 
-        [TesteFiltro]
+        [CustomAutenticacao("administrador")]
         public ActionResult Index()
         {
             //Referencia uma instancia do Model

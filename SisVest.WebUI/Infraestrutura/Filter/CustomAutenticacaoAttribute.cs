@@ -11,10 +11,17 @@ namespace SisVest.WebUI.Infraestrutura.Filter
         //A principio essa injeção não irá funcionar
         public IAutenticacaoProvider autenticacaoProvider { get; set; }
 
+        public String grupoEscolhido;
+
+        public CustomAutenticacaoAttribute(string grupo)
+        {
+            grupoEscolhido = grupo;
+        }
+
         //apenas para negar o acesso
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            if (!autenticacaoProvider.Autenticado && autenticacaoProvider.UsuarioAutenticado.Grupo == "administrador")
+            if (!autenticacaoProvider.Autenticado && autenticacaoProvider.UsuarioAutenticado.Grupo == grupoEscolhido)
             {
                 return true;
             }

@@ -31,7 +31,7 @@ namespace SisVest.WebUI.Controllers
         /// Para ter acesso a esse Index, precisa ser autenticado, autenticação pelo Nivel de Action
         /// </summary>
         /// <returns></returns>
-        [CustomAutenticacao]
+        [CustomAutenticacao("administrador")]
         public ActionResult Index()
         {
             return View(vestibularModel.RetornaTodos());
