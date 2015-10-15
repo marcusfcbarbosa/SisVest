@@ -12,7 +12,7 @@ using SisVest.WebUI.Infraestrutura.Filter;
 namespace SisVest.WebUI.Controllers
 {
     
-    [TesteFiltro]
+    [Authorize]
     public class VestibularController : Controller
     {
         private IVestibularRepository repository;
