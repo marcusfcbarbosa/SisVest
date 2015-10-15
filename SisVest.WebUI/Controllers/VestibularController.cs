@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SisVest.WebUI.Models;
+using SisVest.WebUI.Infraestrutura.Filter;
 
 namespace SisVest.WebUI.Controllers
 {
@@ -28,7 +29,7 @@ namespace SisVest.WebUI.Controllers
         /// Para ter acesso a esse Index, precisa ser autenticado, autenticação pelo Nivel de Action
         /// </summary>
         /// <returns></returns>
-        //[Authorize]
+        [TesteFiltro]
         public ActionResult Index()
         {
             return View(vestibularModel.RetornaTodos());

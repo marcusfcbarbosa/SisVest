@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using SisVest.WebUI.Models;
 using SisVest.WebUI.Infraestrutura.Provider.Abstract;
+using SisVest.WebUI.Infraestrutura.Filter;
 
 namespace SisVest.WebUI.Controllers
 {
@@ -36,7 +37,7 @@ namespace SisVest.WebUI.Controllers
             autenticacaoProvider = autenticacaoProviderParam;
         }
 
-        // GET: Curso
+        [TesteFiltro]
         public ActionResult Index()
         {
             //Referencia uma instancia do Model
