@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace SisVest.WebUI.Controllers
 {
@@ -27,6 +28,26 @@ namespace SisVest.WebUI.Controllers
             return View(autenticacaoProvider.UsuarioAutenticado);
         }
 
+        [HttpPost]
+        public ActionResult Entrar(AutenticacaoModel autenticacaoModel, string ReturnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                string msgErro;
+                if (autenticacaoProvider.Autenticar(autenticacaoModel, out msgErro, "administrador"))
+                {
+                    //Transfere para o index de CursoController. ActionResult , Controller 
+                    //caso nao tenha nenhum endereço redireciona para Index
+                    FormsAuthentication.SetAuthCookie(autenticacaoModel.Login, false);
+                    return Redirect(ReturnUrl ?? Url.Action("Index", "Curso"));
+                    //return Redirect(ReturnUrl == String.Empty ? Url.Action("Index", "Curso") : ReturnUrl);
+                    //return Redirect(Url.Action("Index", "Vestibular"));
+                }
+                ModelState.AddModelError("", msgErro);
+                return Redirect("Entrar");
+            }
+            return View();
+        }
 
         public ActionResult Sair()
         {
@@ -34,28 +55,6 @@ namespace SisVest.WebUI.Controllers
             return RedirectToAction("Entrar");
         }
 
-        [HttpPost]
-        public ActionResult Entrar(AutenticacaoModel autenticacaoModel)
-        {
-
-            if (ModelState.IsValid)
-            {
-                string msgErro;
-
-                if (autenticacaoProvider.Autenticar(autenticacaoModel, out msgErro, "administrador"))
-                {
-                    //Transfere para o index de CursoController. ActionResult , Controller 
-                    //caso nao tenha nenhum endereço redireciona para Index
-                    //return Redirect(ReturnUrl == String.Empty ? Url.Action("Index", "Curso") : ReturnUrl);
-                    return Redirect(Url.Action("Index", "Curso"));
-
-                }
-                ModelState.AddModelError("", msgErro);
-            }
-            return View();
-        }
-
-
-
+        
     }
 }

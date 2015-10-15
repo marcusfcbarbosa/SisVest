@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SisVest.WebUI.Models;
+using SisVest.WebUI.Infraestrutura.Provider.Abstract;
 
 namespace SisVest.WebUI.Controllers
 {
@@ -21,23 +22,28 @@ namespace SisVest.WebUI.Controllers
 
         private CursoModel cursoModel;
 
+        private IAutenticacaoProvider autenticacaoProvider;
+
         /// <summary>
         /// A injeção de depencia agora é feita pelo repositorio
         /// não mais pelo VestContext
         /// </summary>
         /// <param name="cursoRepository"></param>
-        public CursoController(ICursoRepository cursoRepository, CursoModel cursoModelParam)
+        public CursoController(ICursoRepository cursoRepository, CursoModel cursoModelParam, IAutenticacaoProvider autenticacaoProviderParam)
         {
             repository = cursoRepository;
             cursoModel = cursoModelParam;
+            autenticacaoProvider = autenticacaoProviderParam;
         }
 
         // GET: Curso
         public ActionResult Index()
         {
             //Referencia uma instancia do Model
-
-            return View(cursoModel.RetornaTodos());
+            if (!autenticacaoProvider.Autenticado  && autenticacaoProvider.UsuarioAutenticado.Grupo == "administrador" ) {
+                HttpContext.Response.StatusCode = 401;
+            }
+            return View(cursoModel.RetornaTodos());            
             //return View(repository.RetornaTodos());
         }
 

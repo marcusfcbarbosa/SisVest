@@ -15,21 +15,21 @@ namespace SisVest.WebUI.Infraestrutura.Provider.Abstract
         /// <param name="autenticacaoModel"></param>
         /// <param name="msgErro"></param>
         /// <returns></returns>
-        bool Autenticar(AutenticacaoModel autenticacaoModel, out string msgErro, string grupo = "administrador");
+         bool Autenticar(AutenticacaoModel autenticacaoModel, out string msgErro, string grupo = "administrador");
 
         /// <summary>
         /// 
         /// </summary>
-        void Desautenticar();
+         void Desautenticar();
 
         /// <summary>
         /// Atributo apenas recuperado
         /// </summary>
-        bool Autenticado { get; }
+         bool Autenticado { get; }
 
         /// <summary>
         /// Irá retornar uma autenticação
         /// </summary>
-        AutenticacaoModel UsuarioAutenticado { get; }
+         AutenticacaoModel UsuarioAutenticado { get; }
     }
 }

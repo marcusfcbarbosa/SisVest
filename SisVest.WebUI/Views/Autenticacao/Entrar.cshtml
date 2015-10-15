@@ -7,15 +7,14 @@
 
 @if (!ViewBag.Autenticado)
 {
-            using (@Html.BeginForm())
-            {
-                @Html.EditorForModel()
-                <p>
-                    <input type="submit" value="Entrar" />
-                </p>
-            }
+        using (@Html.BeginForm())
+        {
+            @Html.EditorForModel()
+            <p>
+                <input type="submit" value="Entrar" />
+            </p>
+        }
 }else{
-
     <p>
         "Autenticado " 
     </p>
