@@ -41,9 +41,6 @@ namespace SisVest.WebUI.Controllers
         public ActionResult Index()
         {
             //Referencia uma instancia do Model
-            if (!autenticacaoProvider.Autenticado  && autenticacaoProvider.UsuarioAutenticado.Grupo == "administrador" ) {
-                HttpContext.Response.StatusCode = 401;
-            }
             return View(cursoModel.RetornaTodos());            
             //return View(repository.RetornaTodos());
         }

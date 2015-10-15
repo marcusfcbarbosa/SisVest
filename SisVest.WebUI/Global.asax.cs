@@ -43,6 +43,7 @@ namespace SisVest.WebUI
             RegisterRoutes(RouteTable.Routes);
 
             //Quando a aplicação inicia ele seta as depencias de cada repositorio
+            //A principio a injeção de dependencia esta apontando para os Controllers
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
         }
     }
