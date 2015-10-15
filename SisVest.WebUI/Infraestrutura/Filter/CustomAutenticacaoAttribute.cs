@@ -12,7 +12,7 @@ namespace SisVest.WebUI.Infraestrutura.Filter
         //apenas para negar o acesso
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            return false;
+            return true;
         }
     }
 }
