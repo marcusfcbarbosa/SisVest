@@ -18,6 +18,7 @@ namespace SisVest.WebUI.Infraestrutura
 
         private IKernel kernel;
 
+        public IKernel Kernel { get { return kernel; } }
 
         public NinjectDependencyResolver()
         {

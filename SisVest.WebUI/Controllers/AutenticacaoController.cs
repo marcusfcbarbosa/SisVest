@@ -39,7 +39,7 @@ namespace SisVest.WebUI.Controllers
                     //Transfere para o index de CursoController. ActionResult , Controller 
                     //caso nao tenha nenhum endereço redireciona para Index
                     FormsAuthentication.SetAuthCookie(autenticacaoModel.Login, false);
-                    return Redirect(ReturnUrl ?? Url.Action("Index", "Curso"));
+                    return Redirect(ReturnUrl ?? Url.Action("Index", "Vestibular"));
                     //return Redirect(ReturnUrl == String.Empty ? Url.Action("Index", "Curso") : ReturnUrl);
                     //return Redirect(Url.Action("Index", "Vestibular"));
                 }

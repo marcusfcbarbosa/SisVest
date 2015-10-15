@@ -45,7 +45,7 @@ namespace SisVest.WebUI.Infraestrutura.Provider.Concrete
 
             HttpContext.Current.Session["autenticacao"] = new AutenticacaoModel
             {
-                Grupo = "Administrador",
+                Grupo = "administrador",
                 Login = autenticacaoModel.Login,
                 Senha = autenticacaoModel.Senha,
                 NomeTratamento = usuario.NomeTratamento
@@ -60,6 +60,8 @@ namespace SisVest.WebUI.Infraestrutura.Provider.Concrete
 
         public bool Autenticado
         {
+            
+
             get
             {
                 return

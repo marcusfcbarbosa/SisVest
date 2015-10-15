@@ -37,7 +37,7 @@ namespace SisVest.WebUI.Controllers
             autenticacaoProvider = autenticacaoProviderParam;
         }
 
-        [CustomAutenticacao("administrador")]
+        //[CustomAutenticacao("administrador")]
         public ActionResult Index()
         {
             //Referencia uma instancia do Model

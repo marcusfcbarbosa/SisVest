@@ -1,4 +1,5 @@
 ﻿using SisVest.WebUI.Infraestrutura;
+using SisVest.WebUI.Infraestrutura.FilterProvider;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -48,6 +49,11 @@ namespace SisVest.WebUI
 
             //Todas as dependencias serão resolvidas pelo NinjectDependencyResolver, definindo as injeções nao somente a nivel de Controller, mas a toda a aplicação
             DependencyResolver.SetResolver(new NinjectDependencyResolver());
+
+            
+            //Como esta sendo criado um novo, devemos limpar os antigos
+            FilterProviders.Providers.Clear();
+            FilterProviders.Providers.Add(new FilterProviderCustom());
 
 
         }
