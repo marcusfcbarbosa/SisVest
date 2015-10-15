@@ -26,8 +26,6 @@ namespace SisVest.WebUI.Infraestrutura.Filter
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             if (autenticacaoProvider.Autenticado && autenticacaoProvider.UsuarioAutenticado.Grupo == grupoEscolhido)
-            //if (!autenticacaoProvider.Autenticado && autenticacaoProvider.UsuarioAutenticado.Grupo == grupoEscolhido)
-            //if (!autenticacaoProvider.Autenticado)
             {
                 return true;
             }
