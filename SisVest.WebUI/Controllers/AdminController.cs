@@ -11,7 +11,6 @@ namespace SisVest.WebUI.Controllers
 {
     public class AdminController : Controller
     {
-
         private IAdminRepository adminRepository;
 
         public AdminController(IAdminRepository repository)

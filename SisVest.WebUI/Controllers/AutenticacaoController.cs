@@ -12,15 +12,12 @@ namespace SisVest.WebUI.Controllers
 
     public class AutenticacaoController : Controller
     {
-
         private IAutenticacaoProvider autenticacaoProvider;
-
 
         public AutenticacaoController(IAutenticacaoProvider autenticacaoProviderParam)
         {
             autenticacaoProvider = autenticacaoProviderParam;
         }
-
 
         // GET: Autenticacao
         public ActionResult Entrar()
@@ -53,7 +50,5 @@ namespace SisVest.WebUI.Controllers
             autenticacaoProvider.Desautenticar();
             return RedirectToAction("Entrar");
         }
-
-        
     }
 }
