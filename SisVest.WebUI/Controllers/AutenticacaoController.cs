@@ -15,6 +15,11 @@ namespace SisVest.WebUI.Controllers
 
         private IAutenticacaoProvider autenticacaoProvider;
 
+
+
+
+
+
         public AutenticacaoController(IAutenticacaoProvider autenticacaoProviderParam)
         {
             autenticacaoProvider = autenticacaoProviderParam;
