@@ -42,7 +42,7 @@ namespace SisVest.WebUI.Controllers
             return View(vestibularModel.RetornaVestibular(idVestibular));
         }
 
-        [CustomAutenticacao("candidato")]
+        //[CustomAutenticacao("candidato")]
         public ActionResult Create()
         {
             return View();

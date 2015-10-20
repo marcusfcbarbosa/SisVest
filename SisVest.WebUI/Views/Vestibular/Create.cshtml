@@ -56,6 +56,7 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="button" value="Voltar" id="btnVoltar" />
                 </div>
             </div>
         </div>
@@ -69,9 +70,13 @@
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="~/Scripts/jquery-ui.ui.i18n.datepicker-pt-BR.js"></script>
     <script type="text/javascript">
-        $('#DataInicio').datepicker({ dateFormat: 'yy-mm-dd' });
-        $('#DataFim').datepicker({ dateFormat: 'yy-mm-dd' });
-        $('#DataProva').datepicker({ dateFormat: 'yy-mm-dd' });
+    $('#DataInicio').datepicker({ dateFormat: 'yy-mm-dd' });
+    $('#DataFim').datepicker({ dateFormat: 'yy-mm-dd' });
+    $('#DataProva').datepicker({ dateFormat: 'yy-mm-dd' });
+
+    $("#btnVoltar").click(function () {
+        location.href = '@Url.Action("Index")';
+    });
     </script>
 </body>
 </html>
