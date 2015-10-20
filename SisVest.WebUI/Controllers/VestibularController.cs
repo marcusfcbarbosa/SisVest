@@ -11,8 +11,8 @@ using SisVest.WebUI.Infraestrutura.Filter;
 
 namespace SisVest.WebUI.Controllers
 {
-    
-    [Authorize]
+
+    [CustomAutenticacao("administrador")]
     public class VestibularController : Controller
     {
         private IVestibularRepository repository;
@@ -31,7 +31,7 @@ namespace SisVest.WebUI.Controllers
         /// Para ter acesso a esse Index, precisa ser autenticado, autenticação pelo Nivel de Action
         /// </summary>
         /// <returns></returns>
-        [CustomAutenticacao("administrador")]
+        
         public ActionResult Index()
         {
             return View(vestibularModel.RetornaTodos());
