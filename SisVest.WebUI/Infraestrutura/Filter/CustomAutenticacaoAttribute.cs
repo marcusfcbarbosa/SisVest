@@ -22,6 +22,24 @@ namespace SisVest.WebUI.Infraestrutura.Filter
             grupoEscolhido = grupo;
         }
 
+        #region"Métodos que comunicam com o TempData do Controller"
+        public override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            base.OnAuthorization(filterContext);
+            
+        }
+        /// <summary>
+        /// Retorna uma mensagem de erro a view pelo TempData do Controller
+        /// </summary>
+        /// <param name="filterContext"></param>
+        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+        {
+            base.HandleUnauthorizedRequest(filterContext);
+            filterContext.Controller.TempData["Mensagem"] = msgErro;
+        }
+
+        #endregion
+
         //apenas para negar o acesso
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
@@ -30,8 +48,15 @@ namespace SisVest.WebUI.Infraestrutura.Filter
             if (autenticacaoProvider.Autenticado)
             {
 
+                if (!String.IsNullOrEmpty(grupoEscolhido))
+                {
+                    if (autenticacaoProvider.UsuarioAutenticado.Grupo != grupoEscolhido)
+                    {
+                        msgErro = "Você não tem permissão para acessar essa pagina, com suas credenciais";
+                        return false;
+                    }
+                }
                 return true;
-
             }
             else
             {
