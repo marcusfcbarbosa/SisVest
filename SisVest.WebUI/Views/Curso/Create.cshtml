@@ -58,9 +58,18 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    $("#btnVoltar").click(function () {
+    location.href = '@Url.Action("Index")';
+    });
 </div>
-
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<!-- Load jQuery UI Main JS  -->
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript">
+    $("#btnVoltar").click(function () {
+        location.href = '@Url.Action("Index")';
+    });
+</script>

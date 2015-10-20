@@ -51,8 +51,18 @@
     <br /><br />
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
-        <div class="form-actions no-color">
-            @Html.ActionLink("Back to List", "Index")
-        </div>
     }
 </div>
+            <p>
+                <input type="button" value="Voltar" id="btnVoltar" />
+            </p>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<!-- Load jQuery UI Main JS  -->
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript">
+    $("#btnVoltar").click(function () {
+        location.href = '@Url.Action("Index")';
+    });
+</script>
+
