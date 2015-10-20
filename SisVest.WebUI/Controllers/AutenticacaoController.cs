@@ -16,10 +16,6 @@ namespace SisVest.WebUI.Controllers
         private IAutenticacaoProvider autenticacaoProvider;
 
 
-
-
-
-
         public AutenticacaoController(IAutenticacaoProvider autenticacaoProviderParam)
         {
             autenticacaoProvider = autenticacaoProviderParam;
@@ -45,11 +41,9 @@ namespace SisVest.WebUI.Controllers
                     //caso nao tenha nenhum endereço redireciona para Index
                     FormsAuthentication.SetAuthCookie(autenticacaoModel.Login, false);
                     return Redirect(ReturnUrl ?? Url.Action("Index", "Vestibular"));
-                    //return Redirect(ReturnUrl == String.Empty ? Url.Action("Index", "Curso") : ReturnUrl);
-                    //return Redirect(Url.Action("Index", "Vestibular"));
                 }
-                ModelState.AddModelError("", msgErro);
-                return Redirect("Entrar");
+                TempData["Mensagem"] = msgErro;
+                return RedirectToAction("Entrar");
             }
             return View();
         }

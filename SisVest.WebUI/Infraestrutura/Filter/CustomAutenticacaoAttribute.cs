@@ -15,7 +15,7 @@ namespace SisVest.WebUI.Infraestrutura.Filter
         public IAutenticacaoProvider autenticacaoProvider { get; set; }
 
         public String grupoEscolhido;
-
+        private String msgErro = String.Empty;
         //A dependencia não será injetada por Construtor
         public CustomAutenticacaoAttribute(string grupo)
         {
@@ -25,11 +25,26 @@ namespace SisVest.WebUI.Infraestrutura.Filter
         //apenas para negar o acesso
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            if (autenticacaoProvider.Autenticado && autenticacaoProvider.UsuarioAutenticado.Grupo == grupoEscolhido)
+
+
+            if (autenticacaoProvider.Autenticado)
             {
+
                 return true;
+
             }
-            return false;
+            else
+            {
+
+                msgErro = "Você precisa estar autenticado para acessar essa página";
+                return false;
+            }
+
+            //if (autenticacaoProvider.Autenticado && autenticacaoProvider.UsuarioAutenticado.Grupo == grupoEscolhido)
+            //{
+            //    return true;
+            //}
+            //return false;
         }
     }
 }
