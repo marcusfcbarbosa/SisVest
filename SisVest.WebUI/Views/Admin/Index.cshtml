@@ -20,9 +20,9 @@
 
   grid.Column("Email", header: "Email", format: @<i>@item.Email</i>),
 
-  grid.Column(header: "   ", format: (item) => Html.ActionLink("Editar", "Edit", new { idAdmin = item.id }), canSort: true),
+  grid.Column(header: "   ", format: (item) => Html.ActionLink("Editar", "Edit", new { idAdmin = item.ID }), canSort: true),
   
-  grid.Column(header: "   ", format: (item) => Html.ActionLink("Excluir", "Delete", new { idAdmin = item.id }), canSort: true)
+  grid.Column(header: "   ", format: (item) => Html.ActionLink("Excluir", "Delete", new { idAdmin = item.ID }), canSort: true)
 
   )
   
