@@ -1,6 +1,6 @@
 ﻿window.createAdmin = {
     events: function () {
-        $('#Senha').strength();
+        //$('#Senha').strength();
         $('#Senha').strength({
             strengthClass: 'strength',
             strengthMeterClass: 'strength_meter',

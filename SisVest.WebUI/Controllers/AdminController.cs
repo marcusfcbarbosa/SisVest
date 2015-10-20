@@ -96,7 +96,6 @@ namespace SisVest.WebUI.Controllers
                 else {
                     TempData["Mensagem"] = "Não se pode excluir o usuario com o que esta autenticado no sistema";
                 }
-                
             }
             catch (Exception ex)
             {

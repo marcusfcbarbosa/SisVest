@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SisVest.DomaninModel.Abstract;
+using System.ComponentModel.DataAnnotations;
 
 namespace SisVest.WebUI.Models
 {
@@ -21,11 +22,21 @@ namespace SisVest.WebUI.Models
 
         public String Descricao { get; set; }
 
+
+        [Required(ErrorMessage = "Data de inicio Obrigatório")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd//MM/yyyy}")]
         public DateTime? DataInicio { get; set; }
 
+
+        [Required(ErrorMessage = "Data Fim Obrigatório")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd//MM/yyyy}")]
         public DateTime? DataFim { get; set; }
 
+        [Required(ErrorMessage = "Data Prova Obrigatório")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd//MM/yyyy}")]
         public DateTime? DataProva { get; set; }
+
+
 
         public IList<VestibularModel> RetornaTodos()
         {

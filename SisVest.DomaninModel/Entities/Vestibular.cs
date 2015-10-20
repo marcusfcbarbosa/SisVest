@@ -17,14 +17,20 @@ namespace SisVest.DomaninModel.Entities
         [Required(ErrorMessage="Descrição Obrigatório")]
         public String Descricao { get; set; }
 
+
         [Required(ErrorMessage = "Data de inicio Obrigatório")]
+        [DisplayFormat(ApplyFormatInEditMode = true,DataFormatString="{0:dd//MM/yyyy}")]
         public DateTime? DataInicio { get; set; }
 
         [Required(ErrorMessage = "Data fim Obrigatório")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd//MM/yyyy}")]
         public DateTime? DataFim { get; set; }
 
         [Required(ErrorMessage = "Data prova Obrigatório")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd//MM/yyyy}")]
         public DateTime? DataProva { get; set; }
+
+
 
         /// <summary>
         /// Por estar usando objetos e trabalhar com EF, ele necessita ser virtual
