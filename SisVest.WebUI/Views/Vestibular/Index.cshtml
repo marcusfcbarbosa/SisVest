@@ -15,8 +15,8 @@
     @Html.ActionLink("Create New", "Create")
 </p>
             @{
-                          WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
-                      }
+                WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
+                                      }
   @grid.GetHtml(columns: grid.Columns(
   
   grid.Column("Descricao", header: "Curso", format: @<i>@item.Descricao</i>),

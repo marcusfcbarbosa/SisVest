@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SisVest.DomaninModel.Entities.Admin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Administradores</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+            @{
+                WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
+            }
+  @grid.GetHtml(columns: grid.Columns(
+        
+  grid.Column("Login", header: "Login", format: @<i>@item.Login</i>),
+  
+  grid.Column("Nome", header: "NomeTratamento", format: @<i>@item.NomeTratamento</i>),
+
+  grid.Column("Email", header: "Email", format: @<i>@item.Email</i>),
+
+  grid.Column(header: "   ", format: (item) => Html.ActionLink("Editar", "Edit", new { idAdmin = item.id }), canSort: true),
+  
+  grid.Column(header: "   ", format: (item) => Html.ActionLink("Excluir", "Delete", new { idAdmin = item.id }), canSort: true)
+
+  )
+  
+  )

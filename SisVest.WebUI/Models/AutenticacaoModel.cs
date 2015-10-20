@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SisVest.DomaninModel.Abstract;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace SisVest.WebUI.Models
 {
     public class AutenticacaoModel
     {
+
+
         [Required(ErrorMessage="Login obrigatório")]
         public string Login { get;set;}
 
