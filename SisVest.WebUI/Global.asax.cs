@@ -53,7 +53,9 @@ namespace SisVest.WebUI
             //Como esta sendo criado um novo, devemos limpar os antigos
             FilterProviders.Providers.Clear();
             FilterProviders.Providers.Add(new FilterProviderCustom());
-
+            
+            //Poder ver a mimificação em ambiente de debug
+            BundleTable.EnableOptimizations = true;
 
             RegisterBundles(BundleTable.Bundles);
         }
