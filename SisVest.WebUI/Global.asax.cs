@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Optimization;
 
 namespace SisVest.WebUI
 {
@@ -48,13 +49,24 @@ namespace SisVest.WebUI
 
             //Todas as dependencias serão resolvidas pelo NinjectDependencyResolver, definindo as injeções nao somente a nivel de Controller, mas a toda a aplicação
             DependencyResolver.SetResolver(new NinjectDependencyResolver());
-
             
             //Como esta sendo criado um novo, devemos limpar os antigos
             FilterProviders.Providers.Clear();
             FilterProviders.Providers.Add(new FilterProviderCustom());
 
 
+            RegisterBundles(BundleTable.Bundles);
+        }
+
+        private static void RegisterBundles(BundleCollection bundleCollection)
+        {
+
+            ///Comecando a miniicar os script
+            var jQeuryBundle = new ScriptBundle("~/Bundles/jquery");
+
+            jQeuryBundle.Include("~/Scripts/jquery-1.7.1.intellisense.js");
+
+            bundleCollection.Add(jQeuryBundle);
         }
     }
 }

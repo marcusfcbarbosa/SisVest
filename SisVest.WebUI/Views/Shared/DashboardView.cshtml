@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -46,6 +47,6 @@
     </section>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script type="text/javascript" src="~/Scripts/Dashboard/index.js"></script>
-
+    @Scripts.Render("~/Bundles/jquery")
 </body>
 </html>
